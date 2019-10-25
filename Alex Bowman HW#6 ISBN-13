@@ -1,0 +1,40 @@
+
+/*Alex Bowman
+ * Professor Silvestri
+ * CSC-111
+ * 10/25
+ * ISBN-13
+ */
+import java.util.Scanner;
+
+public class ISBN {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("please enter 12 digits for isbn-13");
+		String isbn = input.nextLine();
+		int sum = 0;
+		if (isbn.length() == 12) {
+			for (int i = 0; i < 12; i++) {
+				// isbn.charAt(1)-isbn.charAt(0)=1;
+				if (Character.isDigit(isbn.charAt(i))) {
+					if (i % 2 == 0) {
+						sum = sum + (isbn.charAt(i) - '0');
+					} else {
+						sum = sum + 3 * (isbn.charAt(i) - '0');
+					}
+
+				}
+			}
+
+			sum = 10 - sum % 10;
+			if (sum == 10) {
+				sum = 0;
+
+			}
+
+			System.out.println(isbn + sum);
+		} else {
+			System.out.println("Please enter 12 digits");
+		}
+	}
+}
