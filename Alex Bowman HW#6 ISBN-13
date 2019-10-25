@@ -22,7 +22,9 @@ public class ISBN {
 						sum = sum + 3 * (isbn.charAt(i) - '0');
 					}
 
-				}
+				} else
+					System.out.println("Please enter in numbers");
+				break;
 			}
 
 			sum = 10 - sum % 10;
@@ -34,6 +36,7 @@ public class ISBN {
 			System.out.println(isbn + sum);
 		} else {
 			System.out.println("Please enter 12 digits");
+
 		}
 	}
 }
